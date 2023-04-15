@@ -1,0 +1,24 @@
+gql-ase:
+  datasource:
+    host: ${GQL_ASE_DATASOURCE_HOST:localhost}
+    port: ${GQL_ASE_DATASOURCE_PORT:5000}
+    dbName: ${GQL_ASE_DATASOURCE_DBNAME:DB_TEST1}
+    url: jdbc:jtds:sybase://${gql-ase.datasource.host}:${gql-ase.datasource.port}/${gql-ase.datasource.dbName}
+    username: ${GQL_ASE_DATASOURCE_USERNAME:guest}
+    password: ${GQL_ASE_DATASOURCE_PASSWORD:guest1234}
+    driver-class-name: ${GQL_ASE_DATASOURCE_DRIVER_CLASS_NAME:net.sourceforge.jtds.jdbc.Driver}
+    hikari:
+      connection-test-query: ${GQL_ASE_DATASOURCE_HIKARI_CONNECTION_TEST_QUERY:SELECT 1}
+
+spring:
+  flyway:
+    url: ${gql-ase.datasource.url}
+    user: ${gql-ase.datasource.username}
+    password: ${gql-ase.datasource.password}
+  datasource:
+    url: ${gql-ase.datasource.url}
+    username: ${gql-ase.datasource.username}
+    password: ${gql-ase.datasource.password}
+    driver-class-name: ${gql-ase.datasource.driver-class-name}
+    hikari:
+      connection-test-query: ${gql-ase.datasource.hikari.connection-test-query}

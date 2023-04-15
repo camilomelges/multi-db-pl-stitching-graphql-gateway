@@ -1,0 +1,22 @@
+server:
+  port: ${SERVER_PORT}
+  error:
+    include-message: ${SERVER_ERROR_INCLUDE_MESSAGE:NEVER}
+
+spring:
+  application:
+    name: "graphql-sybase"
+  profiles:
+    active: default
+    include:
+      - db
+
+logging:
+  level:
+    flyway: ${LOGGING_LEVEL_FLYWAY:debug}
+    web: ${LOGGING_LEVEL_WEB:debug}
+    root: ${LOGGING_LEVEL_ROOT:debug}
+    sql: ${LOGGING_LEVEL_SQL:debug}
+  file:
+    path: ${LOGGING_FILE_PATH:./logs}
+    name: ${logging.file.path}/${LOGGING_FILE_NAME:${spring.application.name}.log}

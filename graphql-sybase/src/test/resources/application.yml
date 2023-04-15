@@ -1,0 +1,19 @@
+server:
+  port: 8000
+  error:
+    include-message: always
+
+spring:
+  application:
+    name: "graphql-sybase"
+  profiles:
+    active: test
+    include:
+      - db-test
+
+logging:
+  level:
+    flyway: debug
+    web: debug
+    root: debug
+    sql: debug
